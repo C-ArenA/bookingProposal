@@ -1,1 +1,88 @@
 \section{Alcance del Trabajo}
+
+En base a los objetivos expuestos y la identificación de problemáticas y oportunidades, a continuación se lista, de forma modular, los alcances que se desean para la realización de este proyecto por parte de 2IES.
+
+\subsection{Conversación, Coordinación y Toma de Requerimientos}
+
+\begin{itemize}
+    \item La primera semana del proyecto será crucial para que 2IES obtenga la mayor cantidad de información posible acerca de las necesidades del convocante. Estas necesidades deben alinearse con lo expuesto en los TdR.
+    \item Se investigarán los distintos roles posibles y las prácticas realizadas actualmente tanto a nivel de gestión de proyectos como de evaluación presupuestaria.
+    \item Se crearán canales de comunicación, los cuales deben ser activos durante el proceso de desarrollo
+    \item Se asignarán responsables de comunicación tanto del lado convocante como del lado proponente
+    \item Se identificarán los indicadores de proyectos que se desean implementar en el sistema
+    \item Se definirán los requisitos funcionales y no funcionales que no sean susceptibles a cambios posteriores, así como aquellos que pueden ser más versátiles 
+    \item Se establecerán entornos de pruebas desde el día uno, siendo los mismos brindados por 2IES y con vigencia hasta la finalización del proyecto
+\end{itemize}
+
+\subsection{Creación de una Estructura de Datos oportuna}
+\begin{itemize}
+    \item Se diseñará una estructura de base de datos relacional que responda a la toma de requerimientos previa. La misma puede evolucionar, pero atendiendo a las definiciones realizadas en la toma de requerimientos 
+    \item Se implementarán las estrategias de auditoría, backup e integridad de datos para el sistema
+\end{itemize}
+
+\subsection{Diseño de Interfaces y Experiencia de Usuario (UI/UX)}
+\begin{itemize}
+    \item El equipo de diseño de 2IES presentará propuestas de diseño a la entidad consultante, pudiendo obedecer a cambios, en tanto los mismos no demanden una complejidad que extienda los plazos definidos
+    \item El equipo de diseño de 2IES esperará lineamientos de diseño institucional y no los realizará desde cero, siendo este otro servicio totalmente diferente al que se ofrece en esta propuesta
+    \item Se usarán herramientas que tengan probada en el mercado su accesibilidad y facilidad de uso
+\end{itemize}
+
+\subsection{Módulo de Administración de Usuarios}
+\begin{itemize}
+    \item Se brindarán modos de acceso al sistema sin la necesidad de formularios complicados y se brindarán integraciones con sistemas de Autenticación OAuth como el de Google.
+    \item Al ser un sistema institucional, el registro de usuarios se hará unicamente desde el panel de administrador del sistema.
+    \item Se asignarán roles de acuerdo a lo requerido por la FUDEP, no pudiendo los mismos superar 4 
+    \item Los usuarios podrán tener más de un rol dentro del sistema
+    \item Se asignarán vistas a cada rol, logrando tener un sistema de permisos que permita confidencialidad de los datos donde se requiera
+\end{itemize}
+
+\subsection{Módulo de Gestión de Proyectos}
+\begin{itemize}
+    \item Se permitirá la creación de proyectos bajo los parámetros del Marco Lógico y otros definidos en las primeras semanas de toma de requerimientos
+    \item Los proyectos podrán tener estados de borrador, en progreso, desechado y realizado, con la nomenclatura preferida por la FUDEP
+    \item Los proyectos podrán ser desglosados en actividades, con sus respectivos indicadores y supuestos
+    \item Los proyectos podrán registrar su fin, propósito y componentes
+    \item Se asignarán variables a los proyectos para clasificarlos por edad, género y otros (definidos en las primeras semanas de toma de requerimientos)
+    \item Los proyectos podrán ser clasificados de acuerdo al territorio en el que sean realizados
+    \item Se asignarán líderes de proyecto a cada proyecto, para que sean estos los que ingresen la información pertinente, además de los administradores
+    \item Los proyectos tendrán una capa de ingreso de información para otros actores que no sean necesariamente líderes de los mismos
+\end{itemize}
+
+\subsection{Módulo de Manejo atómico de actividades}
+\begin{itemize}
+    \item Las actividades del proyecto podrán tener estados, basados en la metodología Kanban u otras similares, donde los estados pueden ser: "Por hacer", "En progreso" y "Realizado". Constituyendo un indicador cualitativo.
+    \item El manejo de las actividades contará con su propia funcionalidad interactiva que imita herramientas de gestión de proyectos existentes en el mercado actual, pero integrado dentro del sistema
+\end{itemize}
+
+\subsection{Módulo de Asignación Presupuestaria}
+\begin{itemize}
+    \item Los proyectos tendrán las acciones de Asignar Presupuesto, Solicitar Presupuesto y Erogar gasto de acuerdo a los roles del sistema
+    \item Cada transacción realizada será registrada en conformidad con el lenguaje contable utilizado por la FUDEP (el cual debe ser especificado en las primeras semanas de toma de requerimientos)
+    \item Los datos contables de los proyectos tendrán que ver unicamente con los proyectos y no buscan abarcar un sistema contable completo, lo cual iría más allá de esta convocatoria.
+\end{itemize}
+
+\subsection{Módulo de Reportes}
+\begin{itemize}
+    \item Cada usuario tendrá un dashboard con un resumen del estado de los proyectos que están bajo su liderazgo. Los administradores tendrán un resumen global
+    \item Se generarán reportes de acuerdo a rol de las distintas actividades, proyectos, programas, indicadores, etc.
+    \item Se crearán reportes públicos si la FUDEP lo requiere para buscar la transparencia
+    \item Como parte de la propuesta de innovación se implementará una API para poder consumir datos del sistema desde otros sistemas como ser sitios web o aplicaciones móviles
+    \item Se atenderán todos los reportes especificados en la primera semana de toma de requerimientos, en tanto estos concuerden con los TdR y tengan sentido desde un punto de vista de análisis de datos
+\end{itemize}
+
+\subsection{Módulo de Notificaciones y Alertas}
+\begin{itemize}
+    \item Se brindarán canales de notificación dentro del mismo sistema
+    \item Se brindarán canales de notificación externos al sistema en tanto estos puedan ser adquiridos por la FUDEP. Algunos de estos canales son gratuitos y se incluirán de cualquier modo.
+    \item Se notificarán vencimientos de plazos
+    \item Se notificarán erogaciones de presupuestos
+    \item Se notificarán asignaciones de presupuesto a los líderes del proyecto
+    \item Otro tipo de notificaciones se acordarán en la etapa de toma de requerimientos
+\end{itemize}
+
+\subsection{Capacitación y Documentación}
+\begin{itemize}
+    \item Se brindarán cursos de capacitación concisos y organizados para los distintos actores de la FUDEP, un día para cada actor
+    \item Se creará una plataforma de documentación accesible en todo momento dentro del sistema
+    \item Se crearán guías y tutoriales usando medios audiovisuales
+\end{itemize}
