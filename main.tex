@@ -1,27 +1,55 @@
 \documentclass[11pt, letterpaper]{article}
-\usepackage[left=3cm, right=3cm, top=10mm, bottom=1in, headheight=20mm, includehead]{geometry}
+\usepackage[left=3cm, right=3cm, top=1in, bottom=20mm, includefoot, footskip=25mm]{geometry}
 \usepackage[spanish, es-noshorthands]{babel}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage{fancyhdr}
-\renewcommand{\familydefault}{\sfdefault}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{everypage}
+\usepackage{tikzpagenodes}
+\usepackage{mwe}
+\usepackage{fontspec}
+\usetikzlibrary{calc}
+
+\definecolor{jucuxBlue}{HTML}{011627}
+%FONTS
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase, Color=jucuxBlue}
+\setmainfont{JetBrainsMono}[Scale=1.1]
+\setmonofont{JetBrainsMono}
+
+% FOOTER BOX
+\AddEverypageHook{
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[jucuxBlue] (current page.south west) rectangle (\paperwidth, -\paperheight + 57mm);
+    \end{tikzpicture}
+}
+
 \begin{document}
 
 \input{./cover}
+\setlength{\baselineskip}{18pt}
+
+% Headers and footers
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{
+    \includegraphics[width=0.05\textwidth]{assets/logojucux.png}\\
+    {\addfontfeature{Color=white, Scale=0.9}{\Large Jucux - \the\year}\\Empresa de desarrollo de software\\{\tiny Contáctanos vía Whatsapp: 75844266 - 79596359}}
+}
+
 \tableofcontents
 \newpage
-\pagestyle{fancy}
-\fancyhead[R]{\includegraphics[width=0.2\textwidth]{assets/new2ies.png}}
-\fancyhead[L]{Sistema de Seguimiento y Monitoreo Institucional\\Ingeniería Estructural e Ingeniería de Telecomunicaciones}
+\fancyhead[R]{\thepage}
 \input{./sections/introduction}
-\input{./sections/background}
-\input{./sections/problem_statement} % Problemática
-\input{./sections/objective}
-\input{./sections/scope_and_limitations}
-\input{./sections/proposed_solution} % Enfoque
-\input{./sections/methodology}
-\input{./sections/deliverables}
-\input{./sections/schedule} % Plan de Trabajo
+%\input{./sections/background}
+%\input{./sections/problem_statement} % Problemática
+%\input{./sections/objective}
+%\input{./sections/scope_and_limitations}
+%\input{./sections/proposed_solution} % Enfoque
+%\input{./sections/methodology}
+%\input{./sections/deliverables}
+%\input{./sections/schedule} % Plan de Trabajo
 
 \end{document}
