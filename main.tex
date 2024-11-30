@@ -5,17 +5,18 @@
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage{fancyhdr}
-\usepackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames, table, xcdraw]{xcolor}
 \usepackage{everypage}
 \usepackage{tikzpagenodes}
 \usepackage{mwe}
 \usepackage{fontspec}
+\usepackage{booktabs}
 \usetikzlibrary{calc}
 
 \definecolor{jucuxBlue}{HTML}{011627}
 %FONTS
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase, Color=jucuxBlue}
-\setmainfont{JetBrainsMono}[Scale=1.1]
+\setmainfont{JetBrainsMono}[Scale=1]
 \setmonofont{JetBrainsMono}
 
 % FOOTER BOX
@@ -44,12 +45,12 @@
 \fancyhead[R]{\thepage}
 \input{./sections/introduction}
 %\input{./sections/background}
-%\input{./sections/problem_statement} % Problemática
-%\input{./sections/objective}
+\input{./sections/problem_statement} % Problemática
+\input{./sections/objective}
 %\input{./sections/scope_and_limitations}
-%\input{./sections/proposed_solution} % Enfoque
-%\input{./sections/methodology}
+\input{./sections/proposed_solution} % Enfoque
+\input{./sections/methodology}
 %\input{./sections/deliverables}
-%\input{./sections/schedule} % Plan de Trabajo
+\input{./sections/schedule} % Plan de Trabajo
 
 \end{document}

@@ -2,75 +2,35 @@
 
 En fecha 27 de Noviembre del año presente se tomaron los requerimientos por parte del cliente para solicitar la propuesta y cotización para la realización de un \textquote{Sistema de Reservas de Hoteles}. 
 
-Dicho sistema, al que en adelante haremos referencia como SRH, tiene como propósito brindar un canal de reservas nacional que brinde un trato cercano a dueños de hoteles, que permita responder a ciertas particularidades que otras plataformas no poseen y que genere confianza en los usuarios. Todo esto además de otorgar las herramientas necesarias de administración.
+Dicho sistema, al que en adelante haremos referencia como SRH, tiene como propósito brindar un canal de reservas a nivel nacional que brinde un trato cercano a los dueños de hoteles (anfitriones), que permita responder a particularidades que otras plataformas no poseen, que genere confianza en los usuarios finales (huéspedes) y que además otorgue herramientas necesarias de administración.
 
-De acuerdo esto se solicitó que se pueda responder a los siguientes aspectos:
+De acuerdo a nuestro análisis, que se detalla más adelante, proponemos un MVP (Minimum Viable Product) para rápida prueba de concepto con un enfoque modular y progresivo, siendo 7 los módulos identificados:
+1) administración de usuarios,
+2) reservas y valoraciones (Pieza central),
+3) administración de anfitrión y registro de datos de hoteles,
+4) administración general,
+5) pagos en línea,
+6) facturación electrónica,
+7) contabilidad básica,
 
-\begin{itemize}
-    \item El sistema debe tener un módulo de administración de usuarios con un procedimiento de registro que garantice la autenticidad de los hoteles mediante sus representantes y permita el fácil acceso de los huéspedes (o posibles huéspedes).
-    \item Se debe contar con una estructura de datos que permita almacenar información relevante de los hoteles registrados para su correcto aprovechamiento. Algunos datos que se resaltaron en la primera reunión:
-        \begin{itemize}
-            \item Hotel incluye desayuno
-            \item Ubicación del hotel
-            \item Tipo de alojamiento
-            \item Tipo de localización
-            \item Número de estrellas
-            \item Fotografías del hotel
-            \item Disponibilidad de agua
-            \item Servicios
-            \item Reglas del hotel
-            \item Mobiliario ofrecido
-            \item Valoraciones del hotel
-        \end{itemize}
-    \item Se debe contar con un módulo de valoraciones de hoteles para que los usuarios puedan interactuar y brindar su opinión, tanto para provecho del anfitrión como para futuros huéspedes.
-    \item Módulo de reservas: Se debe considerar la posibilidad de realizar una prereserva con duración limitada de validez que se confirme con el pago. Dichas acciones deben contar con mensajes de confirmación.
-    \item Se debe integrar un sistema de pagos en línea.
-    \item Se requiere un módulo contable mínimo para poder hacer seguimiento de las distintas transacciones realizadas y la toma de decisiones correspondiente.
-    \item Se precisa también integrar un módulo de facturación electrónica.
-\end{itemize}
+\textit{Los detalles acerca de las tecnologías a usar, la arquitectura y la infraestructura propuesta se muestran en secciones posteriores.}
 
-Además, nacen otros aspectos necesarios en base a los anteriores: 
+Entendiendo que el core del sistema y los demás módulos pueden ser \textbf{implementados de forma independiente y en varios pasos}, los costos del servicio serán los siguientes:
 
-\begin{itemize}
-    \item Creación del Panel de administración general
-    \item Creación del Panel de administración de anfitrión
-\end{itemize}
+\begin{table}[h!]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}|l|l|@{}}
+        \hline
+    \rowcolor{jucuxBlue} 
+    {\addfontfeature{Color=white} Etapa} & {\addfontfeature{Color=white}Costo}  \\ \midrule
+    Core del sistema: Reservas y Administración & Bs. 5200                     \\ \midrule
+Módulo de pago 100\% en línea               & Bs. 1300                     \\ \midrule
+Módulo de facturación electrónica integrado & Bs. 2000                     \\ \bottomrule
+\end{tabular}%
+    }
+\end{table}
 
-También se entiende que el proyecto en sí mismo requiere de un pronto lanzamiento al mercado, probablemente en forma de un MVP (Minimum Viable Product) para validación de la idea, por lo que el análisis realizado apunta en este sentido.
+El core incluirá un sistema de pagos por QR con asistencia humana, pero que no requiera el \textbf{gasto en comisiones para terceros}.
 
-Es por lo anterior que podemos dividir el SRH (Aplicación) en los siguientes módulos:
-
-\begin{enumerate}
-    \item Módulo de administración de usuarios
-    \item Módulo de reservas y valoraciones (Pieza central)
-    \item Módulo de administración de anfitrión y registro de datos de hoteles
-    \item Módulo de administración general
-    \item Módulo de pagos en línea
-    \item Módulo de facturación electrónica
-    \item Módulo de contabilidad básica
-\end{enumerate}
-
-Para lograr la implementación exitosa en el menor tiempo posible y con posibilidad a mejoras futuras y escalabilidad, se propone el stack tecnológico TALL (Tailwind, Alpine, Laravel, Livewire), en un sistema de tipo monolítico. De este modo conseguir un desarrollo eficiente y a bajos costos, además de versatilidad en caso de desear la creación de un servicio REST API.
-
-La aplicación funcionará en entornos web, siendo accesible por una mayor cantidad de usuarios en función al marketing que reciba.
-
-La infraestructura, para comenzar, será de un hosting compartido con algún proveedor como puede ser Hostinger. Sin embargo, durante la etapa de desarrollo la empresa JUCUX proveerá un servidor de pruebas.
-
-De este modo los costos serían los siguientes, dividiendo el sistema en 2 supermódulos:
-
-\begin{enumerate}
-    \item Supermódulo de reservas y administración (módulos 1,2,3,4,5,7): 5000Bs
-    \item Módulo de pagos en línea (5): 1000Bs
-    \item Módulo de facturación electrónica (6): 2000Bs
-\end{enumerate}
-
-En el primer supermódulo se integrará un sistema de pagos QR que se enviará al correo de los administradores para que los mismos puedan registrarlo manualmente al sistema y generar una factura por otros medios. Esto se propone como una opción inicial para probar el concepto y para abaratar los siguientes costos:
-
-\begin{itemize}
-    \item Comisiones de pagos en línea
-    \item Módulo de facturación electrónica
-\end{itemize}
-
-Nótese que, de comenzar con el supermódulo, los siguientes módulos pueden añadirse en el futuro una vez probado el concepto.
-
-Pagos en línea por QR con asistencia humana progresivo
+El tiempo de desarrollo del core será de 2 meses y medio. Los demás módulos implicarán 1 mes cada uno.
